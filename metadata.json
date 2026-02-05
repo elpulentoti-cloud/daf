@@ -1,0 +1,7 @@
+{
+  "name": "Sistema DAF - Control de Liquidez Total",
+  "description": "Plataforma financiera integral para el control de gastos, cobranzas y proyecciones de caja multiperíodo con alertas críticas sonoras y visuales.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
