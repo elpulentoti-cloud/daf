@@ -3,7 +3,21 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { DailyProjection } from "../types";
 
 export const getFinancialInsights = async (projections: DailyProjection[]) => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  // Manejo seguro para evitar crash si process no está definido en el navegador
+  const apiKey = (typeof process !== 'undefined' && process.env && process.env.API_KEY) 
+    ? process.env.API_KEY 
+    : '';
+
+  if (!apiKey) {
+    console.warn("IA: API_KEY no detectada. Los insights están desactivados.");
+    return {
+      summary: "Análisis automático no disponible. Configure la API Key en el entorno.",
+      recommendations: ["Verificar variables de entorno", "Consultar guía de despliegue"],
+      riskLevel: "N/A"
+    };
+  }
+
+  const ai = new GoogleGenAI({ apiKey });
   const model = 'gemini-3-flash-preview';
 
   const dataContext = projections.map(p => ({
