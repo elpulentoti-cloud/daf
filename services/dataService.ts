@@ -1,7 +1,6 @@
 
-import { Transaction, DailyProjection, AlertType, Alert } from '../types';
-// Fixed: INITIAL_BALANCE and MIN_OPERATIVE_BALANCE are exported from constants, not types
-import { INITIAL_BALANCE, MIN_OPERATIVE_BALANCE } from '../constants';
+import { Transaction, DailyProjection, AlertType, Alert } from '../types.ts';
+import { INITIAL_BALANCE, MIN_OPERATIVE_BALANCE } from '../constants.tsx';
 
 export const calculateProjections = (
   transactions: Transaction[], 

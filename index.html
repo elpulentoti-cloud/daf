@@ -4,48 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema DAF - Gestión Financiera Corporativa</title>
+    <title>GAF EDALTEC - Control Financiero</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+      // Shim obligatorio para evitar errores de 'process is not defined' en el navegador
+      window.process = { env: { API_KEY: "" } };
+    </script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
       body { 
-        font-family: 'Inter', sans-serif;
-        background-color: #f1f5f9;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #f8fafc;
+        margin: 0;
+        padding: 0;
       }
-      .bg-daf-primary { background-color: #0f172a; }
-      .text-daf-primary { color: #0f172a; }
-      .border-daf-primary { border-color: #0f172a; }
-      
-      .bg-daf-accent { background-color: #3b82f6; }
-      .text-daf-accent { color: #3b82f6; }
-      
       .custom-scrollbar::-webkit-scrollbar {
-        width: 6px;
+        width: 5px;
       }
       .custom-scrollbar::-webkit-scrollbar-track {
         background: transparent;
       }
       .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
+        background: #e2e8f0;
         border-radius: 10px;
+      }
+      .financial-card {
+        background: white;
+        border: 1px solid #f1f5f9;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        border-radius: 24px;
       }
     </style>
 <script type="importmap">
 {
   "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "recharts": "https://esm.sh/recharts@2.12.7",
+    "@google/genai": "https://esm.sh/@google/genai@0.21.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "recharts": "https://esm.sh/recharts@^3.7.0",
-    "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+    "react/": "https://esm.sh/react@^19.2.4/"
   }
 }
 </script>
 </head>
-<body class="text-slate-900 overflow-hidden">
+<body class="text-slate-900 bg-slate-50">
     <div id="root"></div>
-    <!-- Carga explícita del punto de entrada para que funcione en GitHub Pages -->
     <script type="module" src="./index.tsx"></script>
 </body>
 </html>

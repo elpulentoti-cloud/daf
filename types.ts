@@ -11,8 +11,9 @@ export enum SoundType {
 }
 
 export enum UserRole {
-  ADMIN = 'ADMIN',
-  VIEWER = 'VIEWER'
+  GERENTE_GAF = 'Gerente GAF',
+  JEFE_ADMIN = 'Jefe de Administración',
+  JEFE_FINANZAS = 'Jefe de Finanzas'
 }
 
 export interface Transaction {
@@ -22,6 +23,7 @@ export interface Transaction {
   amount: number;
   type: 'INCOME' | 'EXPENSE';
   entity: string;
+  responsible: string; // Basado en el organigrama
   status: 'PENDING' | 'COMPLETED' | 'OVERDUE' | 'PROCESSED';
 }
 
